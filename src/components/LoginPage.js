@@ -1,8 +1,8 @@
 import  React, {Component} from 'react';
 import {Text, TextInput, Button, View, TouchableOpacity} from 'react-native';
-import  {createStackNavigator}  from  'react-navigation';
-import RegisterPage from './RegisterPage';
-import HomePage from  './HomePage';
+import  {createStackNavigator, createAppContainer}  from  'react-navigation';
+import RegisterPage from './RegisterPage.js';
+import HomePage from  './HomePage.js';
 
 export class LoginPage extends Component{
   render(){
@@ -20,7 +20,6 @@ export class LoginPage extends Component{
             <TextInput style = {styles.input}
                        placeholder = "password"
                        returnKeyType = "go"
-                       secureTextEntry
                        ref = {(input) => this.passwordInput = input}
             />
             <TouchableOpacity style = {styles.container} onPress = {() => this.props.navigation.navigate('Home')}>
@@ -38,20 +37,25 @@ export class LoginPage extends Component{
   }
 
 }
+/*
 export default class App extends Component{
   render(){
     return(
-        <AppStackNavigator/>
+        <AppStackNavigator />
 
     );
   }
 
-}
+}*/
+
 const AppStackNavigator = createStackNavigator({
   Login: LoginPage,
   Register: RegisterPage,
   Home: HomePage
 });
+
+const App = createAppContainer(AppStackNavigator);
+export default App;
 
 const styles = {
   container: {
@@ -81,7 +85,7 @@ const styles = {
   },
   buttonText: {
     textAlign: 'center',
-    color: '#ecf0f1',
+    color: '#34495e',
     fontSize: 20
   }
 }

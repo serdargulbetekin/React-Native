@@ -44,7 +44,7 @@ const styles = {
         flex: 1,
         backgroundColor: "#ecf0f1",
         justifyContent: "center",
-        alignItems: "strech"
+        alignItems: "stretch"
     },
     registerForm:{
       marginTop: 50,
